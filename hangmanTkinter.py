@@ -1,21 +1,11 @@
-#from os import path
 from tkinter import *
+from tkinter import messagebox
 import math
 import random
 import string
 from functools import partial
 from PIL import ImageTk, Image
 import os, sys
-#import Image
-
-#initializing
-my_window=Tk()
-my_window.title("HANGMAN GAME")
-img = PhotoImage(file='gameicon.ico')
-my_window.tk.call('wm', 'iconphoto', my_window._w, img)
-my_window.geometry("8000x600")
-my_window.configure(background="#94d42b")
-
 
 #selecting word from files
 word_file= "google-10000-english.txt"
@@ -40,9 +30,17 @@ print(Mistery_word)
 limit=8
 correct_counter=0
 
+#initializing
+my_window=Tk()
+my_window.title("HANGMAN GAME")
+img = PhotoImage(file='gameicon.ico')
+my_window.tk.call('wm', 'iconphoto', my_window._w, img)
+widthx=len(Mistery_word)*9 +791 #8 letters is the perfect amount for letter boxes
+my_window.geometry("{}x600".format(widthx))
+my_window.configure(background="#94d42b")
 
 #image setup. hangman stages display per mistake(everytime limit decreases).
-all_images=["stage8.png", "stage7.png", "stage6.png", "stage5.png", "stage4.png", "stage3.png", "stage2.png", "stage1.png", "empty.png"]
+all_images=["hangman_pics/stage8.png", "hangman_pics/stage7.png", "hangman_pics/stage6.png", "hangman_pics/stage5.png", "hangman_pics/stage4.png", "hangman_pics/stage3.png", "hangman_pics/stage2.png", "hangman_pics/stage1.png", "empty.png"]
 hangman_img = Image.open(all_images[limit])
 hangman_img = hangman_img.resize((200, 200), Image.ANTIALIAS)
 hangman_img= ImageTk.PhotoImage(hangman_img)
