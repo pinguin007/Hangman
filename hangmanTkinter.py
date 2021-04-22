@@ -37,7 +37,7 @@ img = PhotoImage(file='gameicon.ico')
 my_window.tk.call('wm', 'iconphoto', my_window._w, img)
 widthx=len(Mistery_word)*9 +791 #8 letters is the perfect amount for letter boxes
 my_window.geometry("{}x600".format(widthx))
-my_window.configure(background="#94d42b")
+my_window.configure(background="#FFFFFF")
 
 #image setup. hangman stages display per mistake(everytime limit decreases).
 all_images=["hangman_pics/stage8.png", "hangman_pics/stage7.png", "hangman_pics/stage6.png", "hangman_pics/stage5.png", "hangman_pics/stage4.png", "hangman_pics/stage3.png", "hangman_pics/stage2.png", "hangman_pics/stage1.png", "empty.png"]
@@ -106,7 +106,7 @@ allbuttons=[]
 
 
 for i in range(0,len(alphabet)):
-    allbuttons.append(Button(my_window, text=alphabet[i], fg="blue", bg="yellow", height=5, width=9, command=partial(change_color, i)))
+    allbuttons.append(Button(my_window, text=alphabet[i], fg="black", bg="white", height=5, width=9, command=partial(change_color, i)))
     allbuttons[i].grid(row=Vrow, column=Vcolumn)
 
     Vcolumn+=1
